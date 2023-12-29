@@ -6,7 +6,7 @@ interface Props {
   pics: string[];
 }
 
-const SqaureImage: React.FC<Props> = ({ src, pics }) => {
+const SqaureImage: React.FC<Props> = ({ src }) => {
   let [left, setLeft] = useState(-100);
   const slideLeft = () => {
     setLeft(0);

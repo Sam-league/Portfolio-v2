@@ -13,41 +13,44 @@ const coners: number[] = [1, 2, 6, 4, 5, 10, 16, 21, 22, 20, 24, 25];
 
 const Pics: string[] = new Array(9)
   .fill(0)
-  .map((v, i) => `./src/assets/Pics/pic${i + 1}.jpg`);
+  .map((v, i) => `./src/assets/Pics/pic${i + 1 + v}.jpg`);
 
 const Patterns: string[] = new Array(4)
   .fill(0)
-  .map((v, i) => `./src/assets/Pics/pattern${i + 1}.png`);
+  .map((v, i) => `./src/assets/Pics/pattern${i + 1 + v}.png`);
 console.log("Pics", Pics);
 
 const GridContainer: React.FC<Props> = ({ height }) => {
   return (
     <Grid height={height}>
-      {arr.map((v, i) => (
-        <Cell
-          key={i}
-          color={
-            coners.includes(i + 1)
-              ? "transparent"
-              : i % 2 == 0
-              ? Colors.primary
-              : Colors.black
-          }
-        >
-          {!coners.includes(i + 1) && i % 2 == 0 && (
-            <SqaureImage
-              pics={Pics}
-              src={Pics[Math.floor(Math.random() * 9)]}
-            />
-          )}
-          {!coners.includes(i + 1) && i % 2 != 0 && (
-            <SqaureImage
-              pics={Pics}
-              src={Patterns[Math.floor(Math.random() * 4)]}
-            />
-          )}
-        </Cell>
-      ))}
+      {arr.map((v, i) => {
+        v && "";
+        return (
+          <Cell
+            key={i}
+            color={
+              coners.includes(i + 1)
+                ? "transparent"
+                : i % 2 == 0
+                ? Colors.primary
+                : Colors.black
+            }
+          >
+            {!coners.includes(i + 1) && i % 2 == 0 && (
+              <SqaureImage
+                pics={Pics}
+                src={Pics[Math.floor(Math.random() * 9)]}
+              />
+            )}
+            {!coners.includes(i + 1) && i % 2 != 0 && (
+              <SqaureImage
+                pics={Pics}
+                src={Patterns[Math.floor(Math.random() * 4)]}
+              />
+            )}
+          </Cell>
+        );
+      })}
     </Grid>
   );
 };

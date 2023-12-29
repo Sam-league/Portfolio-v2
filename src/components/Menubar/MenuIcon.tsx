@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../Utils/Colors";
 
-const REM = 3;
 const MenuIcon: React.FC = () => {
   return (
     <Wrapper>
